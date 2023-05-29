@@ -138,6 +138,21 @@
           }
         }
       ]
+    },
+    "vcObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'titre'"
+                }
+              }
+            }
+          }
+        }
+      ]
     }
   }
 }
