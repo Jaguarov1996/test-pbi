@@ -29,14 +29,6 @@ table train
 
 		annotation SummarizationSetBy = Automatic
 
-		annotation Format = <Format Format="Text" />
-
-		annotation DataTypeAtRefresh = String#####not a type
-
-		annotation PBI_NameAtRefresh = Id
-
-		annotation PBI_WasHiddenAtRefresh = False
-
 	column Elevation
 		dataType: Int64
 		formatString:= 0
@@ -46,14 +38,6 @@ table train
 		summarizeBy: Sum
 
 		annotation SummarizationSetBy = Automatic
-
-		annotation Format = <Format Format="NumberWhole" Accuracy="0" />
-
-		annotation DataTypeAtRefresh = Int64#####not a type
-
-		annotation PBI_NameAtRefresh = Elevation
-
-		annotation PBI_WasHiddenAtRefresh = False
 
 	column Aspect
 		dataType: Int64
@@ -65,14 +49,6 @@ table train
 
 		annotation SummarizationSetBy = Automatic
 
-		annotation Format = <Format Format="NumberWhole" Accuracy="0" />
-
-		annotation DataTypeAtRefresh = Int64#####not a type
-
-		annotation PBI_NameAtRefresh = Aspect
-
-		annotation PBI_WasHiddenAtRefresh = False
-
 	column Slope
 		dataType: Int64
 		formatString:= 0
@@ -82,14 +58,6 @@ table train
 		summarizeBy: Sum
 
 		annotation SummarizationSetBy = Automatic
-
-		annotation Format = <Format Format="NumberWhole" Accuracy="0" />
-
-		annotation DataTypeAtRefresh = Int64#####not a type
-
-		annotation PBI_NameAtRefresh = Slope
-
-		annotation PBI_WasHiddenAtRefresh = False
 
 	column Horizontal_Distance_To_Hydrology
 		dataType: Int64
@@ -101,14 +69,6 @@ table train
 
 		annotation SummarizationSetBy = Automatic
 
-		annotation Format = <Format Format="NumberWhole" Accuracy="0" />
-
-		annotation DataTypeAtRefresh = Int64#####not a type
-
-		annotation PBI_NameAtRefresh = Horizontal_Distance_To_Hydrology
-
-		annotation PBI_WasHiddenAtRefresh = False
-
 	column Vertical_Distance_To_Hydrology
 		dataType: Int64
 		formatString:= 0
@@ -118,14 +78,6 @@ table train
 		summarizeBy: Sum
 
 		annotation SummarizationSetBy = Automatic
-
-		annotation Format = <Format Format="NumberWhole" Accuracy="0" />
-
-		annotation DataTypeAtRefresh = Int64#####not a type
-
-		annotation PBI_NameAtRefresh = Vertical_Distance_To_Hydrology
-
-		annotation PBI_WasHiddenAtRefresh = False
 
 	column Horizontal_Distance_To_Roadways
 		dataType: Int64
@@ -137,14 +89,6 @@ table train
 
 		annotation SummarizationSetBy = Automatic
 
-		annotation Format = <Format Format="NumberWhole" Accuracy="0" />
-
-		annotation DataTypeAtRefresh = Int64#####not a type
-
-		annotation PBI_NameAtRefresh = Horizontal_Distance_To_Roadways
-
-		annotation PBI_WasHiddenAtRefresh = False
-
 	column Hillshade_9am
 		dataType: Int64
 		formatString:= 0
@@ -154,14 +98,6 @@ table train
 		summarizeBy: Sum
 
 		annotation SummarizationSetBy = Automatic
-
-		annotation Format = <Format Format="NumberWhole" Accuracy="0" />
-
-		annotation DataTypeAtRefresh = Int64#####not a type
-
-		annotation PBI_NameAtRefresh = Hillshade_9am
-
-		annotation PBI_WasHiddenAtRefresh = False
 
 	column Hillshade_Noon
 		dataType: Int64
@@ -173,14 +109,6 @@ table train
 
 		annotation SummarizationSetBy = Automatic
 
-		annotation Format = <Format Format="NumberWhole" Accuracy="0" />
-
-		annotation DataTypeAtRefresh = Int64#####not a type
-
-		annotation PBI_NameAtRefresh = Hillshade_Noon
-
-		annotation PBI_WasHiddenAtRefresh = False
-
 	column Hillshade_3pm
 		dataType: Int64
 		formatString:= 0
@@ -190,14 +118,6 @@ table train
 		summarizeBy: Sum
 
 		annotation SummarizationSetBy = Automatic
-
-		annotation Format = <Format Format="NumberWhole" Accuracy="0" />
-
-		annotation DataTypeAtRefresh = Int64#####not a type
-
-		annotation PBI_NameAtRefresh = Hillshade_3pm
-
-		annotation PBI_WasHiddenAtRefresh = False
 
 	column Horizontal_Distance_To_Fire_Points
 		dataType: Int64
@@ -209,14 +129,6 @@ table train
 
 		annotation SummarizationSetBy = Automatic
 
-		annotation Format = <Format Format="NumberWhole" Accuracy="0" />
-
-		annotation DataTypeAtRefresh = Int64#####not a type
-
-		annotation PBI_NameAtRefresh = Horizontal_Distance_To_Fire_Points
-
-		annotation PBI_WasHiddenAtRefresh = False
-
 	column 'Wilderness '
 		dataType: String
 		isDataTypeInferred: false
@@ -225,14 +137,6 @@ table train
 		summarizeBy: None
 
 		annotation SummarizationSetBy = Automatic
-
-		annotation Format = <Format Format="Text" />
-
-		annotation DataTypeAtRefresh = String#####not a type
-
-		annotation PBI_NameAtRefresh = Wilderness 
-
-		annotation PBI_WasHiddenAtRefresh = False
 
 	column Soil
 		dataType: Int64
@@ -244,14 +148,6 @@ table train
 
 		annotation SummarizationSetBy = Automatic
 
-		annotation Format = <Format Format="NumberWhole" Accuracy="0" />
-
-		annotation DataTypeAtRefresh = Int64#####not a type
-
-		annotation PBI_NameAtRefresh = Soil
-
-		annotation PBI_WasHiddenAtRefresh = False
-
 	column Cover_Type
 		dataType: String
 		isDataTypeInferred: false
@@ -260,16 +156,6 @@ table train
 		summarizeBy: None
 
 		annotation SummarizationSetBy = Automatic
-
-		annotation Format = <Format Format="Text" />
-
-		annotation DataTypeAtRefresh = String#####not a type
-
-		annotation PBI_NameAtRefresh = Cover_Type
-
-		annotation PBI_WasHiddenAtRefresh = False
-
-	annotation PBI_DescriptionAtRefresh
 
 	annotation PBI_NavigationStepName = Navigation
 

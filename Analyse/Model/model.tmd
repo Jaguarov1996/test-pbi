@@ -7,7 +7,7 @@ model Model
 	defaultPowerBIDataSourceVersion: PowerBI_V3
 	sourceQueryCulture: fr-FR
 
-annotation PBIDesktopVersion = 2.100.785.0 (21.12)
+annotation PBIDesktopVersion = 2.117.984.0 (23.05)
 
 annotation PBI_QueryOrder = ["train"]
 

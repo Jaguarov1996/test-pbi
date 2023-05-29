@@ -11,7 +11,6 @@ table 'DateTableTemplate_bd85dfc2-8865-4a79-8762-f9eb6100f498'
 	column Date
 		dataCategory: PaddedDateTableDates
 		dataType: DateTime
-		formatString:= General Date
 		isHidden
 		lineageTag: 4830d1f2-b9ca-45b6-afef-fbbe9e53fbcb
 		sourceColumn: [Date]
@@ -19,12 +18,9 @@ table 'DateTableTemplate_bd85dfc2-8865-4a79-8762-f9eb6100f498'
 
 		annotation SummarizationSetBy = User
 
-		annotation Format = <Format Format="DateTimeGeneralPattern"><DateTimes><DateTime LCID="1036" Group="GeneralDateTimeLong" FormatString="G" /></DateTimes></Format>
-
 	column Année = YEAR([Date])
 		dataCategory: Years
 		dataType: Int64
-		formatString:= 0
 		isHidden
 		lineageTag: 4f60708a-d47c-405c-8555-a7d62c7b6da0
 		summarizeBy: None
@@ -33,12 +29,9 @@ table 'DateTableTemplate_bd85dfc2-8865-4a79-8762-f9eb6100f498'
 
 		annotation TemplateId = Year
 
-		annotation Format = <Format Format="NumberWhole" Accuracy="0" />
-
 	column NoMois = MONTH([Date])
 		dataCategory: MonthOfYear
 		dataType: Int64
-		formatString:= 0
 		isHidden
 		lineageTag: 5adddad7-b33a-4984-8c17-206469e56418
 		summarizeBy: None
@@ -46,8 +39,6 @@ table 'DateTableTemplate_bd85dfc2-8865-4a79-8762-f9eb6100f498'
 		annotation SummarizationSetBy = User
 
 		annotation TemplateId = MonthNumber
-
-		annotation Format = <Format Format="NumberWhole" Accuracy="0" />
 
 	column Mois = FORMAT([Date], "MMMM")
 		dataCategory: Months
@@ -61,12 +52,9 @@ table 'DateTableTemplate_bd85dfc2-8865-4a79-8762-f9eb6100f498'
 
 		annotation TemplateId = Month
 
-		annotation Format = <Format Format="Text" />
-
 	column NoTrimestre = INT(([NoMois] + 2) / 3)
 		dataCategory: QuarterOfYear
 		dataType: Int64
-		formatString:= 0
 		isHidden
 		lineageTag: 82486d97-2cb6-4d01-94b9-c67f3681cb00
 		summarizeBy: None
@@ -74,8 +62,6 @@ table 'DateTableTemplate_bd85dfc2-8865-4a79-8762-f9eb6100f498'
 		annotation SummarizationSetBy = User
 
 		annotation TemplateId = QuarterNumber
-
-		annotation Format = <Format Format="NumberWhole" Accuracy="0" />
 
 	column Trimestre = "Trim " & [NoTrimestre]
 		dataCategory: Quarters
@@ -89,12 +75,9 @@ table 'DateTableTemplate_bd85dfc2-8865-4a79-8762-f9eb6100f498'
 
 		annotation TemplateId = Quarter
 
-		annotation Format = <Format Format="Text" />
-
 	column Jour = DAY([Date])
 		dataCategory: DayOfMonth
 		dataType: Int64
-		formatString:= 0
 		isHidden
 		lineageTag: 9484f124-15a5-45cb-9ba1-3996f3f2840f
 		summarizeBy: None
@@ -102,8 +85,6 @@ table 'DateTableTemplate_bd85dfc2-8865-4a79-8762-f9eb6100f498'
 		annotation SummarizationSetBy = User
 
 		annotation TemplateId = Day
-
-		annotation Format = <Format Format="NumberWhole" Accuracy="0" />
 
 	hierarchy 'Hiérarchie de dates'
 		lineageTag: adf4a021-26f0-44a0-bf08-8aa5a8cfdf34
