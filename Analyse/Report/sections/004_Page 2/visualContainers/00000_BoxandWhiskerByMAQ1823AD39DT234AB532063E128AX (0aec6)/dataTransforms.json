@@ -1,0 +1,135 @@
+{
+  "projectionOrdering": {
+    "categoryGroup": [
+      0
+    ],
+    "measure": [
+      1
+    ],
+    "category": [
+      2
+    ]
+  },
+  "projectionActiveItems": {
+    "categoryGroup": [
+      {
+        "queryRef": "train.Cover_Type",
+        "suppressConcat": false
+      }
+    ]
+  },
+  "queryMetadata": {
+    "Select": [
+      {
+        "Restatement": "Cover_Type",
+        "Name": "train.Cover_Type",
+        "Type": 2048
+      },
+      {
+        "Restatement": "Horizontal_Distance_To_Fire_Points",
+        "Name": "Sum(train.Horizontal_Distance_To_Fire_Points)",
+        "Type": 3,
+        "Format": "0"
+      },
+      {
+        "Restatement": "Id",
+        "Name": "train.Id",
+        "Type": 2048
+      }
+    ]
+  },
+  "visualElements": [
+    {
+      "DataRoles": [
+        {
+          "Name": "categoryGroup",
+          "Projection": 0,
+          "isActive": true
+        },
+        {
+          "Name": "measure",
+          "Projection": 1,
+          "isActive": false
+        },
+        {
+          "Name": "category",
+          "Projection": 2,
+          "isActive": false
+        }
+      ]
+    }
+  ],
+  "selects": [
+    {
+      "displayName": "Cover_Type",
+      "queryName": "train.Cover_Type",
+      "roles": {
+        "categoryGroup": true
+      },
+      "sort": 1,
+      "sortOrder": 0,
+      "type": {
+        "category": null,
+        "underlyingType": 1
+      },
+      "expr": {
+        "Column": {
+          "Expression": {
+            "SourceRef": {
+              "Entity": "train"
+            }
+          },
+          "Property": "Cover_Type"
+        }
+      }
+    },
+    {
+      "displayName": "Horizontal_Distance_To_Fire_Points",
+      "format": "0",
+      "queryName": "Sum(train.Horizontal_Distance_To_Fire_Points)",
+      "roles": {
+        "measure": true
+      },
+      "type": {
+        "category": null,
+        "underlyingType": 260
+      },
+      "expr": {
+        "Aggregation": {
+          "Expression": {
+            "Column": {
+              "Expression": {
+                "SourceRef": {
+                  "Entity": "train"
+                }
+              },
+              "Property": "Horizontal_Distance_To_Fire_Points"
+            }
+          },
+          "Function": 0
+        }
+      }
+    },
+    {
+      "displayName": "Id",
+      "queryName": "train.Id",
+      "roles": {
+        "category": true
+      },
+      "type": {
+        "category": null,
+        "underlyingType": 1
+      },
+      "expr": {
+        "Column": {
+          "Expression": {
+            "SourceRef": {
+              "Entity": "train"
+            }
+          },
+          "Property": "Id"
+        }
+      }
+    }
+  ]
+}

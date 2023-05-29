@@ -1,0 +1,168 @@
+{
+  "objects": {
+    "labels": [
+      {
+        "properties": {
+          "show": {
+            "expr": {
+              "Literal": {
+                "Value": "true"
+              }
+            }
+          },
+          "labelDensity": {
+            "expr": {
+              "Literal": {
+                "Value": "100L"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "categoryAxis": [
+      {
+        "properties": {
+          "innerPadding": {
+            "expr": {
+              "Literal": {
+                "Value": "20L"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "projectionOrdering": {
+    "Category": [
+      1
+    ],
+    "Y": [
+      0
+    ],
+    "Series": [
+      2
+    ]
+  },
+  "projectionActiveItems": {
+    "Category": [
+      {
+        "queryRef": "train.Soil",
+        "suppressConcat": false
+      }
+    ]
+  },
+  "queryMetadata": {
+    "Select": [
+      {
+        "Restatement": "Nombre de Id",
+        "Name": "CountNonNull(train.Id)",
+        "Type": 3
+      },
+      {
+        "Restatement": "Soil",
+        "Name": "train.Soil",
+        "Type": 3,
+        "Format": "0"
+      },
+      {
+        "Restatement": "Cover_Type",
+        "Name": "train.Cover_Type",
+        "Type": 2048
+      }
+    ]
+  },
+  "visualElements": [
+    {
+      "DataRoles": [
+        {
+          "Name": "Category",
+          "Projection": 1,
+          "isActive": true
+        },
+        {
+          "Name": "Y",
+          "Projection": 0,
+          "isActive": false
+        },
+        {
+          "Name": "Series",
+          "Projection": 2,
+          "isActive": false
+        }
+      ]
+    }
+  ],
+  "selects": [
+    {
+      "displayName": "Nombre de Id",
+      "queryName": "CountNonNull(train.Id)",
+      "roles": {
+        "Y": true
+      },
+      "type": {
+        "category": null,
+        "underlyingType": 260
+      },
+      "expr": {
+        "Aggregation": {
+          "Expression": {
+            "Column": {
+              "Expression": {
+                "SourceRef": {
+                  "Entity": "train"
+                }
+              },
+              "Property": "Id"
+            }
+          },
+          "Function": 5
+        }
+      }
+    },
+    {
+      "displayName": "Soil",
+      "format": "0",
+      "queryName": "train.Soil",
+      "roles": {
+        "Category": true
+      },
+      "type": {
+        "category": null,
+        "underlyingType": 260
+      },
+      "expr": {
+        "Column": {
+          "Expression": {
+            "SourceRef": {
+              "Entity": "train"
+            }
+          },
+          "Property": "Soil"
+        }
+      }
+    },
+    {
+      "displayName": "Cover_Type",
+      "queryName": "train.Cover_Type",
+      "roles": {
+        "Series": true
+      },
+      "type": {
+        "category": null,
+        "underlyingType": 1
+      },
+      "expr": {
+        "Column": {
+          "Expression": {
+            "SourceRef": {
+              "Entity": "train"
+            }
+          },
+          "Property": "Cover_Type"
+        }
+      }
+    }
+  ]
+}

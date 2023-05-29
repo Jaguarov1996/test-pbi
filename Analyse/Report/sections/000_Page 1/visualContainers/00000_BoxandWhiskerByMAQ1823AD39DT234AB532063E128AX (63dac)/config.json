@@ -1,0 +1,87 @@
+{
+  "name": "63dac8789eb98a17e560",
+  "layouts": [
+    {
+      "id": 0,
+      "position": {
+        "x": 9.5364238410596034,
+        "y": 0,
+        "z": 0,
+        "width": 1254.0397350993378,
+        "height": 683.44370860927154
+      }
+    }
+  ],
+  "singleVisual": {
+    "visualType": "BoxandWhiskerByMAQ1823AD39DT234AB532063E128AX",
+    "projections": {
+      "categoryGroup": [
+        {
+          "queryRef": "train.Cover_Type",
+          "active": true
+        }
+      ],
+      "measure": [
+        {
+          "queryRef": "Sum(train.Elevation)"
+        }
+      ],
+      "category": [
+        {
+          "queryRef": "train.Id"
+        }
+      ]
+    },
+    "prototypeQuery": {
+      "Version": 2,
+      "From": [
+        {
+          "Name": "t",
+          "Entity": "train",
+          "Type": 0
+        }
+      ],
+      "Select": [
+        {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Source": "t"
+              }
+            },
+            "Property": "Cover_Type"
+          },
+          "Name": "train.Cover_Type"
+        },
+        {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Source": "t"
+              }
+            },
+            "Property": "Id"
+          },
+          "Name": "train.Id"
+        },
+        {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Source": "t"
+                  }
+                },
+                "Property": "Elevation"
+              }
+            },
+            "Function": 0
+          },
+          "Name": "Sum(train.Elevation)"
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

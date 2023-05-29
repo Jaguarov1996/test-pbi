@@ -1,0 +1,176 @@
+{
+  "objects": {
+    "labels": [
+      {
+        "properties": {
+          "show": {
+            "expr": {
+              "Literal": {
+                "Value": "true"
+              }
+            }
+          },
+          "labelDensity": {
+            "expr": {
+              "Literal": {
+                "Value": "100L"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "categoryAxis": [
+      {
+        "properties": {
+          "innerPadding": {
+            "expr": {
+              "Literal": {
+                "Value": "20L"
+              }
+            }
+          },
+          "end": {
+            "expr": {
+              "Literal": {
+                "Value": "250D"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "projectionOrdering": {
+    "Y": [
+      0
+    ],
+    "Series": [
+      1
+    ],
+    "Category": [
+      2
+    ],
+    "Tooltips": []
+  },
+  "projectionActiveItems": {
+    "Category": [
+      {
+        "queryRef": "train.Hillshade_9am",
+        "suppressConcat": false
+      }
+    ]
+  },
+  "queryMetadata": {
+    "Select": [
+      {
+        "Restatement": "Nombre de Id",
+        "Name": "CountNonNull(train.Id)",
+        "Type": 3
+      },
+      {
+        "Restatement": "Cover_Type",
+        "Name": "train.Cover_Type",
+        "Type": 2048
+      },
+      {
+        "Restatement": "Hillshade_9am",
+        "Name": "train.Hillshade_9am",
+        "Type": 3,
+        "Format": "0"
+      }
+    ]
+  },
+  "visualElements": [
+    {
+      "DataRoles": [
+        {
+          "Name": "Y",
+          "Projection": 0,
+          "isActive": false
+        },
+        {
+          "Name": "Series",
+          "Projection": 1,
+          "isActive": false
+        },
+        {
+          "Name": "Category",
+          "Projection": 2,
+          "isActive": true
+        }
+      ]
+    }
+  ],
+  "selects": [
+    {
+      "displayName": "Nombre de Id",
+      "queryName": "CountNonNull(train.Id)",
+      "roles": {
+        "Y": true
+      },
+      "type": {
+        "category": null,
+        "underlyingType": 260
+      },
+      "expr": {
+        "Aggregation": {
+          "Expression": {
+            "Column": {
+              "Expression": {
+                "SourceRef": {
+                  "Entity": "train"
+                }
+              },
+              "Property": "Id"
+            }
+          },
+          "Function": 5
+        }
+      }
+    },
+    {
+      "displayName": "Cover_Type",
+      "queryName": "train.Cover_Type",
+      "roles": {
+        "Series": true
+      },
+      "type": {
+        "category": null,
+        "underlyingType": 1
+      },
+      "expr": {
+        "Column": {
+          "Expression": {
+            "SourceRef": {
+              "Entity": "train"
+            }
+          },
+          "Property": "Cover_Type"
+        }
+      }
+    },
+    {
+      "displayName": "Hillshade_9am",
+      "format": "0",
+      "queryName": "train.Hillshade_9am",
+      "roles": {
+        "Category": true
+      },
+      "type": {
+        "category": null,
+        "underlyingType": 260
+      },
+      "expr": {
+        "Column": {
+          "Expression": {
+            "SourceRef": {
+              "Entity": "train"
+            }
+          },
+          "Property": "Hillshade_9am"
+        }
+      }
+    }
+  ]
+}

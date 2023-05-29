@@ -1,0 +1,150 @@
+{
+  "name": "71e4b48e8e84946a22cd",
+  "layouts": [
+    {
+      "id": 0,
+      "position": {
+        "x": 640.5298013245033,
+        "y": 12.715231788079471,
+        "z": 1,
+        "width": 629.40397350993373,
+        "height": 335.36423841059604
+      }
+    }
+  ],
+  "singleVisual": {
+    "visualType": "hundredPercentStackedColumnChart",
+    "projections": {
+      "Y": [
+        {
+          "queryRef": "CountNonNull(train.Id)"
+        }
+      ],
+      "Series": [
+        {
+          "queryRef": "train.Cover_Type"
+        }
+      ],
+      "Category": [
+        {
+          "queryRef": "train.Hillshade_9am",
+          "active": true
+        }
+      ]
+    },
+    "prototypeQuery": {
+      "Version": 2,
+      "From": [
+        {
+          "Name": "t",
+          "Entity": "train",
+          "Type": 0
+        }
+      ],
+      "Select": [
+        {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Source": "t"
+                  }
+                },
+                "Property": "Id"
+              }
+            },
+            "Function": 5
+          },
+          "Name": "CountNonNull(train.Id)"
+        },
+        {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Source": "t"
+              }
+            },
+            "Property": "Cover_Type"
+          },
+          "Name": "train.Cover_Type"
+        },
+        {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Source": "t"
+              }
+            },
+            "Property": "Hillshade_9am"
+          },
+          "Name": "train.Hillshade_9am"
+        }
+      ],
+      "OrderBy": [
+        {
+          "Direction": 2,
+          "Expression": {
+            "Aggregation": {
+              "Expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Source": "t"
+                    }
+                  },
+                  "Property": "Id"
+                }
+              },
+              "Function": 5
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true,
+    "hasDefaultSort": true,
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "labelDensity": {
+              "expr": {
+                "Literal": {
+                  "Value": "100L"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "categoryAxis": [
+        {
+          "properties": {
+            "innerPadding": {
+              "expr": {
+                "Literal": {
+                  "Value": "20L"
+                }
+              }
+            },
+            "end": {
+              "expr": {
+                "Literal": {
+                  "Value": "250D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

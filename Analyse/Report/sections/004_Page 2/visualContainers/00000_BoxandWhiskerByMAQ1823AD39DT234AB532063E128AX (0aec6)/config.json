@@ -1,0 +1,108 @@
+{
+  "name": "0aec6fa968cb5c4cbb17",
+  "layouts": [
+    {
+      "id": 0,
+      "position": {
+        "x": 99.57340025094102,
+        "y": 32.12045169385194,
+        "z": 0,
+        "width": 499.47302383939774,
+        "height": 327.6286072772898
+      }
+    }
+  ],
+  "singleVisual": {
+    "visualType": "BoxandWhiskerByMAQ1823AD39DT234AB532063E128AX",
+    "projections": {
+      "categoryGroup": [
+        {
+          "queryRef": "train.Cover_Type",
+          "active": true
+        }
+      ],
+      "measure": [
+        {
+          "queryRef": "Sum(train.Horizontal_Distance_To_Fire_Points)"
+        }
+      ],
+      "category": [
+        {
+          "queryRef": "train.Id"
+        }
+      ]
+    },
+    "prototypeQuery": {
+      "Version": 2,
+      "From": [
+        {
+          "Name": "t",
+          "Entity": "train",
+          "Type": 0
+        }
+      ],
+      "Select": [
+        {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Source": "t"
+              }
+            },
+            "Property": "Cover_Type"
+          },
+          "Name": "train.Cover_Type"
+        },
+        {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Source": "t"
+                  }
+                },
+                "Property": "Horizontal_Distance_To_Fire_Points"
+              }
+            },
+            "Function": 0
+          },
+          "Name": "Sum(train.Horizontal_Distance_To_Fire_Points)"
+        },
+        {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Source": "t"
+              }
+            },
+            "Property": "Id"
+          },
+          "Name": "train.Id"
+        }
+      ],
+      "OrderBy": [
+        {
+          "Direction": 2,
+          "Expression": {
+            "Aggregation": {
+              "Expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Source": "t"
+                    }
+                  },
+                  "Property": "Id"
+                }
+              },
+              "Function": 5
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true,
+    "hasDefaultSort": true
+  }
+}

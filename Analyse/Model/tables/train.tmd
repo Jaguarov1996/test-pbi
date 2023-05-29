@@ -1,0 +1,277 @@
+table train
+	lineageTag: 174a1629-7a35-42f8-a830-520420b0d552
+	ordinal: 1
+
+	partition 'train-37172dd6-d3d6-4bd9-a602-a14701c59dc0' = M
+		mode: Import
+		expression:=
+			let
+			    Source = Csv.Document(File.Contents("C:\Users\Moi\Downloads\forest-cover-type-prediction\train.csv"),[Delimiter=",", Columns=56, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+			    #"En-têtes promus" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+			    #"Colonne conditionnelle ajoutée" = Table.AddColumn(#"En-têtes promus", "Wilderness ", each if [Wilderness_Area1] = "1" then "Area 1" else if [Wilderness_Area2] = "1" then "Area 2" else if [Wilderness_Area3] = "1" then "Area 3" else if [Wilderness_Area4] = "1" then "Area 4" else null),
+			    #"Colonnes permutées" = Table.ReorderColumns(#"Colonne conditionnelle ajoutée",{"Id", "Elevation", "Aspect", "Slope", "Horizontal_Distance_To_Hydrology", "Vertical_Distance_To_Hydrology", "Horizontal_Distance_To_Roadways", "Hillshade_9am", "Hillshade_Noon", "Hillshade_3pm", "Horizontal_Distance_To_Fire_Points", "Wilderness_Area1", "Wilderness_Area2", "Wilderness_Area3", "Wilderness_Area4", "Soil_Type1", "Soil_Type2", "Soil_Type3", "Soil_Type4", "Soil_Type5", "Soil_Type6", "Soil_Type7", "Soil_Type8", "Soil_Type9", "Soil_Type10", "Soil_Type11", "Soil_Type12", "Soil_Type13", "Soil_Type14", "Soil_Type15", "Soil_Type16", "Soil_Type17", "Soil_Type18", "Soil_Type19", "Soil_Type20", "Soil_Type21", "Soil_Type22", "Soil_Type23", "Soil_Type24", "Soil_Type25", "Soil_Type26", "Soil_Type27", "Soil_Type28", "Soil_Type29", "Soil_Type30", "Soil_Type31", "Soil_Type32", "Soil_Type33", "Soil_Type34", "Soil_Type35", "Soil_Type36", "Soil_Type37", "Soil_Type38", "Soil_Type39", "Soil_Type40", "Wilderness ", "Cover_Type"}),
+			    #"Colonne conditionnelle ajoutée1" = Table.AddColumn(#"Colonnes permutées", "Soil", each if [Soil_Type1] = "1" then "Type 1" else if [Soil_Type2] = "1" then "Type 2" else if [Soil_Type3] = "1" then "Type 3" else if [Soil_Type4] = "1" then "Type 4" else if [Soil_Type5] = "1" then "Type 5" else if [Soil_Type6] = "1" then "Type 6" else if [Soil_Type7] = "1" then "Type 7" else if [Soil_Type8] = "1" then "Type 8" else if [Soil_Type9] = "1" then "Type 9" else if [Soil_Type10] = "1" then "Type 10" else if [Soil_Type11] = "1" then "Type 11" else if [Soil_Type12] = "1" then "Type 12" else if [Soil_Type13] = "1" then "Type 13" else if [Soil_Type14] = "1" then "Type 14" else if [Soil_Type15] = "1" then "Type 15" else if [Soil_Type16] = "1" then "Type 16" else if [Soil_Type17] = "1" then "Type 17" else if [Soil_Type18] = "1" then "Type 18" else if [Soil_Type19] = "1" then "Type 19" else if [Soil_Type20] = "1" then "Type 20" else if [Soil_Type21] = "1" then "Type 21" else if [Soil_Type22] = "1" then "Type 22" else if [Soil_Type23] = "1" then "Type 23" else if [Soil_Type24] = "1" then "Type 24" else if [Soil_Type25] = "1" then "Type 25" else if [Soil_Type26] = "1" then "Type 26" else if [Soil_Type27] = "1" then "Type 27" else if [Soil_Type28] = "1" then "Type 28" else if [Soil_Type29] = "1" then "Type 29" else if [Soil_Type30] = "1" then "Type 30" else if [Soil_Type31] = "1" then "Type 31" else if [Soil_Type32] = "1" then "Type 32" else if [Soil_Type33] = "1" then "Type 33" else if [Soil_Type34] = "1" then "Type 34" else if [Soil_Type35] = "1" then "Type 35" else if [Soil_Type36] = "1" then "Type 36" else if [Soil_Type37] = "1" then "Type 37" else if [Soil_Type38] = "1" then "Type 38" else if [Soil_Type39] = "1" then "Type 39" else "Type 40"),
+			    #"Lignes filtrées" = Table.SelectRows(#"Colonne conditionnelle ajoutée1", each true),
+			    #"Colonnes supprimées" = Table.RemoveColumns(#"Lignes filtrées",{"Wilderness_Area1", "Wilderness_Area2", "Wilderness_Area3", "Wilderness_Area4", "Soil_Type1", "Soil_Type2", "Soil_Type3", "Soil_Type4", "Soil_Type5", "Soil_Type6", "Soil_Type7", "Soil_Type8", "Soil_Type9", "Soil_Type10", "Soil_Type11", "Soil_Type12", "Soil_Type13", "Soil_Type14", "Soil_Type15", "Soil_Type16", "Soil_Type17", "Soil_Type18", "Soil_Type19", "Soil_Type20", "Soil_Type21", "Soil_Type22", "Soil_Type23", "Soil_Type24", "Soil_Type25", "Soil_Type26", "Soil_Type27", "Soil_Type28", "Soil_Type29", "Soil_Type30", "Soil_Type31", "Soil_Type32", "Soil_Type33", "Soil_Type34", "Soil_Type35", "Soil_Type36", "Soil_Type37", "Soil_Type38", "Soil_Type39", "Soil_Type40"}),
+			    #"Colonnes permutées1" = Table.ReorderColumns(#"Colonnes supprimées",{"Id", "Elevation", "Aspect", "Slope", "Horizontal_Distance_To_Hydrology", "Vertical_Distance_To_Hydrology", "Horizontal_Distance_To_Roadways", "Hillshade_9am", "Hillshade_Noon", "Hillshade_3pm", "Horizontal_Distance_To_Fire_Points", "Wilderness ", "Soil", "Cover_Type"}),
+			    #"Type modifié" = Table.TransformColumnTypes(#"Colonnes permutées1",{{"Aspect", Int64.Type}, {"Elevation", Int64.Type}, {"Slope", Int64.Type}, {"Horizontal_Distance_To_Hydrology", Int64.Type}, {"Vertical_Distance_To_Hydrology", Int64.Type}, {"Horizontal_Distance_To_Roadways", Int64.Type}, {"Hillshade_9am", Int64.Type}, {"Hillshade_Noon", Int64.Type}, {"Hillshade_3pm", Int64.Type}, {"Horizontal_Distance_To_Fire_Points", Int64.Type}}),
+			    #"Valeur remplacée" = Table.ReplaceValue(#"Type modifié","Type","",Replacer.ReplaceText,{"Soil"}),
+			    #"Type modifié1" = Table.TransformColumnTypes(#"Valeur remplacée",{{"Soil", Int64.Type}})
+			in
+			    #"Type modifié1"
+
+	column Id
+		dataType: String
+		isDataTypeInferred: false
+		lineageTag: d6a88b78-39e6-422d-b974-583c66d9115e
+		sourceColumn: Id
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+		annotation DataTypeAtRefresh = String#####not a type
+
+		annotation PBI_NameAtRefresh = Id
+
+		annotation PBI_WasHiddenAtRefresh = False
+
+	column Elevation
+		dataType: Int64
+		formatString:= 0
+		isDataTypeInferred: false
+		lineageTag: 07d1a0f3-8121-4796-977d-3c68856b64a0
+		sourceColumn: Elevation
+		summarizeBy: Sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="NumberWhole" Accuracy="0" />
+
+		annotation DataTypeAtRefresh = Int64#####not a type
+
+		annotation PBI_NameAtRefresh = Elevation
+
+		annotation PBI_WasHiddenAtRefresh = False
+
+	column Aspect
+		dataType: Int64
+		formatString:= 0
+		isDataTypeInferred: false
+		lineageTag: fb932692-73c7-4720-9ee0-9eea67c104d7
+		sourceColumn: Aspect
+		summarizeBy: Sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="NumberWhole" Accuracy="0" />
+
+		annotation DataTypeAtRefresh = Int64#####not a type
+
+		annotation PBI_NameAtRefresh = Aspect
+
+		annotation PBI_WasHiddenAtRefresh = False
+
+	column Slope
+		dataType: Int64
+		formatString:= 0
+		isDataTypeInferred: false
+		lineageTag: 4fb64e06-5da8-4b1a-835a-927d9c00655d
+		sourceColumn: Slope
+		summarizeBy: Sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="NumberWhole" Accuracy="0" />
+
+		annotation DataTypeAtRefresh = Int64#####not a type
+
+		annotation PBI_NameAtRefresh = Slope
+
+		annotation PBI_WasHiddenAtRefresh = False
+
+	column Horizontal_Distance_To_Hydrology
+		dataType: Int64
+		formatString:= 0
+		isDataTypeInferred: false
+		lineageTag: bd42ca76-47f0-44d6-9cda-f8b18fcf35b2
+		sourceColumn: Horizontal_Distance_To_Hydrology
+		summarizeBy: Sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="NumberWhole" Accuracy="0" />
+
+		annotation DataTypeAtRefresh = Int64#####not a type
+
+		annotation PBI_NameAtRefresh = Horizontal_Distance_To_Hydrology
+
+		annotation PBI_WasHiddenAtRefresh = False
+
+	column Vertical_Distance_To_Hydrology
+		dataType: Int64
+		formatString:= 0
+		isDataTypeInferred: false
+		lineageTag: d77f665e-b694-4739-83d8-ccb0c4fd63b7
+		sourceColumn: Vertical_Distance_To_Hydrology
+		summarizeBy: Sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="NumberWhole" Accuracy="0" />
+
+		annotation DataTypeAtRefresh = Int64#####not a type
+
+		annotation PBI_NameAtRefresh = Vertical_Distance_To_Hydrology
+
+		annotation PBI_WasHiddenAtRefresh = False
+
+	column Horizontal_Distance_To_Roadways
+		dataType: Int64
+		formatString:= 0
+		isDataTypeInferred: false
+		lineageTag: c4b4d82d-9f73-4a41-bd73-ad6db7bf6606
+		sourceColumn: Horizontal_Distance_To_Roadways
+		summarizeBy: Sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="NumberWhole" Accuracy="0" />
+
+		annotation DataTypeAtRefresh = Int64#####not a type
+
+		annotation PBI_NameAtRefresh = Horizontal_Distance_To_Roadways
+
+		annotation PBI_WasHiddenAtRefresh = False
+
+	column Hillshade_9am
+		dataType: Int64
+		formatString:= 0
+		isDataTypeInferred: false
+		lineageTag: 61158ad5-c7e1-49a9-a96f-d52c7e3b1d96
+		sourceColumn: Hillshade_9am
+		summarizeBy: Sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="NumberWhole" Accuracy="0" />
+
+		annotation DataTypeAtRefresh = Int64#####not a type
+
+		annotation PBI_NameAtRefresh = Hillshade_9am
+
+		annotation PBI_WasHiddenAtRefresh = False
+
+	column Hillshade_Noon
+		dataType: Int64
+		formatString:= 0
+		isDataTypeInferred: false
+		lineageTag: 71636f55-2bc9-4b4b-a327-c07e9eeec163
+		sourceColumn: Hillshade_Noon
+		summarizeBy: Sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="NumberWhole" Accuracy="0" />
+
+		annotation DataTypeAtRefresh = Int64#####not a type
+
+		annotation PBI_NameAtRefresh = Hillshade_Noon
+
+		annotation PBI_WasHiddenAtRefresh = False
+
+	column Hillshade_3pm
+		dataType: Int64
+		formatString:= 0
+		isDataTypeInferred: false
+		lineageTag: 90513703-ae17-4073-a2da-e3b7c83100f0
+		sourceColumn: Hillshade_3pm
+		summarizeBy: Sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="NumberWhole" Accuracy="0" />
+
+		annotation DataTypeAtRefresh = Int64#####not a type
+
+		annotation PBI_NameAtRefresh = Hillshade_3pm
+
+		annotation PBI_WasHiddenAtRefresh = False
+
+	column Horizontal_Distance_To_Fire_Points
+		dataType: Int64
+		formatString:= 0
+		isDataTypeInferred: false
+		lineageTag: 69fa92e3-14c8-44a4-a224-6e00dc1d4233
+		sourceColumn: Horizontal_Distance_To_Fire_Points
+		summarizeBy: Sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="NumberWhole" Accuracy="0" />
+
+		annotation DataTypeAtRefresh = Int64#####not a type
+
+		annotation PBI_NameAtRefresh = Horizontal_Distance_To_Fire_Points
+
+		annotation PBI_WasHiddenAtRefresh = False
+
+	column 'Wilderness '
+		dataType: String
+		isDataTypeInferred: false
+		lineageTag: 2fa178d4-6f63-418f-a9c9-cc9c275334f8
+		sourceColumn: "Wilderness "
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+		annotation DataTypeAtRefresh = String#####not a type
+
+		annotation PBI_NameAtRefresh = Wilderness 
+
+		annotation PBI_WasHiddenAtRefresh = False
+
+	column Soil
+		dataType: Int64
+		formatString:= 0
+		isDataTypeInferred: false
+		lineageTag: a851245b-9bc7-4541-836f-a816bd1fb05e
+		sourceColumn: Soil
+		summarizeBy: Sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="NumberWhole" Accuracy="0" />
+
+		annotation DataTypeAtRefresh = Int64#####not a type
+
+		annotation PBI_NameAtRefresh = Soil
+
+		annotation PBI_WasHiddenAtRefresh = False
+
+	column Cover_Type
+		dataType: String
+		isDataTypeInferred: false
+		lineageTag: 8d71f00f-656d-42b5-b62e-0d6305ecf1b4
+		sourceColumn: Cover_Type
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+		annotation DataTypeAtRefresh = String#####not a type
+
+		annotation PBI_NameAtRefresh = Cover_Type
+
+		annotation PBI_WasHiddenAtRefresh = False
+
+	annotation PBI_DescriptionAtRefresh
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

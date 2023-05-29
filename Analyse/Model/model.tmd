@@ -1,0 +1,15 @@
+model Model
+	compatibilityLevel: 1550
+	culture: fr-FR
+	dataAccessOptions:
+		legacyRedirects
+		returnErrorValuesAsNull
+	defaultPowerBIDataSourceVersion: PowerBI_V3
+	sourceQueryCulture: fr-FR
+
+annotation PBIDesktopVersion = 2.100.785.0 (21.12)
+
+annotation PBI_QueryOrder = ["train"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+

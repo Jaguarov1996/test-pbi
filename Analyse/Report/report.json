@@ -1,0 +1,37 @@
+{
+  "id": 0,
+  "layoutOptimization": 0,
+  "publicCustomVisuals": [
+    "BoxandWhiskerByMAQ1823AD39DT234AB532063E128AX"
+  ],
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "CY21SU11",
+            "path": "BaseThemes/CY21SU11.json",
+            "type": 202
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    },
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "BoxandWhiskerByMAQ1823AD39DT234AB532063E128AX.pbiviz.json",
+            "path": "BoxandWhiskerByMAQ1823AD39DT234AB532063E128AX.pbiviz.json",
+            "type": 5
+          }
+        ],
+        "name": "BoxandWhiskerByMAQ1823AD39DT234AB532063E128AX",
+        "type": 0
+      }
+    }
+  ]
+}
